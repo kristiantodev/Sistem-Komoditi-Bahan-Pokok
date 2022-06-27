@@ -33,12 +33,11 @@
                         </div>
                         <div style="height: 1px;" role="main" aria-expanded="false" class="navbar-collapse collapse" id="bs">
                             <ul class="nav navbar-nav navbar-right">
-                                <li><a href="index.html"><i class="fas fa-box-open"></i> Home</a></li>
-                                <li><a href="index.html"><i class='fas fa-exclamation-circle'></i>&nbsp; Tentang Kami</a></li>
-                                <li><a href="index.html"><i class='fas fa-chart-line'></i>&nbsp; Statistik Per Wilayah</a></li>
-                                <li><a href="index.html"><i class='fas fa-chart-pie'></i>&nbsp; Statistik Per Komoditi</a></li>
-                                <li><a href="index.html"><i class="fas fa-phone-square "></i> Kontak</a></li>
-                                
+                                <li><a href="<?php echo site_url();?>informasi"><i class="fas fa-box-open"></i> Home</a></li>
+                                <li><a href="<?php echo site_url();?>informasi/about"><i class='fas fa-exclamation-circle'></i>&nbsp; Tentang Kami</a></li>
+                                <li><a href="<?php echo site_url();?>informasi/bahan-wilayah"><i class='fas fa-chart-line'></i>&nbsp; Statistik Per Wilayah</a></li>
+                                <li><a href="<?php echo site_url();?>informasi/bahan-komoditi"><i class='fas fa-chart-pie'></i>&nbsp; Statistik Per Komoditi</a></li>
+                                <li><a href="<?php echo site_url();?>informasi/kontak"><i class="fas fa-phone-square "></i> Kontak</a></li>
                             </ul>
                         </div>
                     </div>
@@ -99,15 +98,15 @@
 
 <div id="footer" class="container-fluid">
     
-            <div class="col-xs-6 col-sm-4 col-md-3">
+            <div class="col-xs-6 col-sm-4 col-md-6">
                 <div class="address-holder">
-                    <div class="phone"><i class="fas fa-phone"></i> 00 285 900 38502</div>
-                    <div class="email"><i class="fas fa-envelope"></i> hello@hostify.com</div>
+                    <div class="phone"><i class="fas fa-phone"></i>(0711) 310-44</div>
+                    <div class="email"><i class="fas fa-envelope"></i> disdag_sumsel@yahoo.com</div>
                     <div class="address">
-                        <i class="fas fa-map-marker"></i> 
-                        <div>City Avenue, Office 64,<br>
-                            Floor 6,  Milbourne,<br>
-                            Australia.</div>
+                        
+                        <div><b><i class="fas fa-map-marker"></i>  Dinas Perdagangan Provinsi Sumatera Selatan</b><br>
+Jl. Demang Lebar Daun No. 2610<br>
+Palembang - Sumatera Selatan.</div>
                     </div>
                 </div>
             </div>
