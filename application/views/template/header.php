@@ -118,8 +118,9 @@
                             <li>
                                 <a href="javascript:void(0);" class="waves-effect"><font color=""><i class="fas fa-shipping-fast"></i></font><span> Data Master<span class="float-right menu-arrow"><i class="mdi mdi-plus"></i></span> </span></a>
                                 <ul class="submenu">
+                                <li><a href="<?php echo site_url();?>adm/jdistributor"><i class="fas fa-mars-double"></i> &nbsp;Jenis Distributor</a></li>
                                     <li><a href="<?php echo site_url();?>adm/distributor"><i class="fas fa-dolly"></i> &nbsp;Distributor</a></li>
-                                    <li><a href="<?php echo site_url();?>adm/pasar"><i class="fas fa-shopping-cart"></i> &nbsp;Pasar</a></li>
+                                    <li><a href="<?php echo site_url();?>adm/lokasi"><i class="fas fa-map-marker-alt"></i> &nbsp;Lokasi</a></li>
                                     <li><a href="<?php echo site_url();?>adm/pangan"><i class="fas fa-box-open"></i> &nbsp;Bahan Pangan</a></li>
                                 </ul>
                             </li>

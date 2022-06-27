@@ -23,7 +23,7 @@
                        
                         <div class="page-content-wrapper">
                             <div class="row">
-             <div class="col-xl-6 col-md-6">
+             <div class="col-xl-4 col-md-6">
                                     <div class="card bg-primary mini-stat position-relative">
                                         <div class="card-body">
                                             <div class="mini-stat-desc">
@@ -35,7 +35,26 @@
                                                     
                                                 </div>
                                                 <div class="mini-stat-icon">
-                                                    <i class="fas fa-bus display-2"></i>
+                                                    <i class="fas fa-dolly display-2"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-xl-4 col-md-6">
+                                    <div class="card bg-primary mini-stat position-relative">
+                                        <div class="card-body">
+                                            <div class="mini-stat-desc">
+                                                <h6 class="verti-label text-white-50">Komoditi</h6>
+                                                <div class="text-white">
+                                                    <h6 class="mt-0 text-white-50"><a href='<?php echo site_url();?>adm/alumni' class="text-white">Total</a></h6>
+                                                    <h4 class="mb-3 mt-0"><b> 
+                                                    100 Pasar</b></h4>
+                                                    
+                                                </div>
+                                                <div class="mini-stat-icon">
+                                                    <i class="fas fa-shopping-cart display-2"></i>
                                                 </div>
                                             </div>
                                         </div>
@@ -43,7 +62,7 @@
                                 </div>
      
 
-                                <div class="col-xl-6 col-md-6">
+                                <div class="col-xl-4 col-md-6">
                                     <div class="card bg-primary mini-stat position-relative">
                                         <div class="card-body">
                                             <div class="mini-stat-desc">
@@ -55,7 +74,7 @@
                                                     
                                                 </div>
                                                 <div class="mini-stat-icon">
-                                                    <i class="fas fa-calendar-plus display-2"></i>
+                                                    <i class="fas fa-box-open display-2"></i>
                                                 </div>
                                             </div>
                                         </div>
@@ -67,7 +86,7 @@
 
                              
 
-                            <div class="row">
+                            <!-- <div class="row">
                                 <div class="col-xl-6">
                                     <div class="card m-b-20">
                                         <div class="card-body">
@@ -93,7 +112,7 @@
                                         </div>
                                     </div>
                                 </div> <!-- end col
-                            </div> <!-- end row
+                            </div> <!-- end row -->
 
                             
                                
