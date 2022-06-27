@@ -13,7 +13,7 @@
                                 <div class="page-title-box">
                                 <h3 class="page-title"><b><i class='fas fa-chart-line'></i>&nbsp;Selamat Datang di Sistem Komoditi Bahan Pangan</b></h3>
                                     <ol class="breadcrumb">
-                                        <li class="breadcrumb-item active">Dinas Perdagangan Sumatera Selatan</li>
+                                        <li class="breadcrumb-item active">Kementerian Perdagangan Sumatera Selatan</li>
                                     </ol>
                
                                     
@@ -31,7 +31,8 @@
                                                 <div class="text-white">
                                                     <h6 class="mt-0 text-white-50"><a href='<?php echo site_url();?>adm/alumni' class="text-white">Total</a></h6>
                                                     <h4 class="mb-3 mt-0"><b> 
-                                                    100 Distributor</b></h4>
+                                                    <?php $array = array('deleted' => 0);
+  echo $total = $this->db->where($array)->count_all_results('distributor');?> Distributor</b></h4>
                                                     
                                                 </div>
                                                 <div class="mini-stat-icon">
@@ -50,11 +51,12 @@
                                                 <div class="text-white">
                                                     <h6 class="mt-0 text-white-50"><a href='<?php echo site_url();?>adm/alumni' class="text-white">Total</a></h6>
                                                     <h4 class="mb-3 mt-0"><b> 
-                                                    100 Pasar</b></h4>
+                                                    <?php $array = array('deleted' => 0);
+  echo $total = $this->db->where($array)->count_all_results('lokasi');?> Lokasi</b></h4>
                                                     
                                                 </div>
                                                 <div class="mini-stat-icon">
-                                                    <i class="fas fa-shopping-cart display-2"></i>
+                                                    <i class="fas fa-map-marker-alt display-2"></i>
                                                 </div>
                                             </div>
                                         </div>
@@ -70,7 +72,8 @@
                                                 <div class="text-white">
                                                     <h6 class="mt-0 text-white-50"><a href="" class="text-white">Total</a></h6>
                                                     <h4 class="mb-3 mt-0"><b>
- 100 Bahan Pokok</b></h4>
+                                                    <?php $array = array('deleted' => 0);
+  echo $total = $this->db->where($array)->count_all_results('bahan');?> Bahan Pokok</b></h4>
                                                     
                                                 </div>
                                                 <div class="mini-stat-icon">

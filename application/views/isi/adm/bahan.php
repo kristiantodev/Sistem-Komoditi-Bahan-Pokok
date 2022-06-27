@@ -13,7 +13,7 @@
                         <div class="row">
                             <div class="col-sm-12">
                                 <div class="page-title-box">
-                                    <h3 class="page-title"><b><i class="fas fa-map-marker-alt"></i>&nbsp; Data Lokasi</b></h3>
+                                    <h3 class="page-title"><b><i class="fas fa-box-open"></i>&nbsp; Data Bahan Pangan</b></h3>
                                     <ol class="breadcrumb">
                                         <li class="breadcrumb-item active">Kementerian Perdagangan Sumatera Selatan</li>
                                     </ol>
@@ -42,7 +42,7 @@
                                                 <thead>
                                                 <tr>
                                     <th width="9"><b>No</b></th>
-                                    <th><b>Nama Lokasi</b></th>
+                                    <th><b>Nama Bahan Pangan</b></th>
                                     <th><b>Keterangan</b></th>
                                     <th width="150"><b>Aksi</b></th>
                                 </tr>
@@ -51,16 +51,16 @@
     
                                                 <tbody>
                                              <?php $no=1;
-         foreach ($lokasiku as $lokasi): ?>
+         foreach ($bahanku as $bahan): ?>
                                 
                                 <tr>
                                     <td width="7" align="center"><?php echo $no++; ?></td>
-                                    <td><?php echo $lokasi->nm_lokasi ?></td>
-                                    <td><?php echo $lokasi->keterangan ?></td>
+                                    <td>&nbsp;&nbsp;&nbsp;<img src="<?php echo base_url('assets/images/bahan/'.$bahan->foto) ?>" alt="" class="thumb-md rounded-circle"> &nbsp;&nbsp;&nbsp;<?php echo $bahan->nm_bahan ?></td>
+                                    <td><?php echo $bahan->keterangan ?></td>
                                     <td>
 
-                 <a data-toggle="modal" data-target="#modal-edit<?php echo $lokasi->id_lokasi ?>" class="btn btn-primary waves-effect waves-light"><span data-toggle="tooltip" data-original-title="Ubah"><font color="white"><i class="fas fa-pencil-alt"></i></font></span></a>
-                 <a onclick="deleteConfirm('<?php echo site_url('adm/lokasi/hapus/'.$lokasi->id_lokasi); ?>')" href="#!" data-toggle="tooltip" class="btn btn-danger waves-effect waves-light tombol-hapus" data-original-title="Hapus"><span class="icon-label" data-toggle="modal" data-target="#modal-danger"><i class="fa fa-trash"></i> </span><span class="btn-text"></span></a>
+                 <a data-toggle="modal" data-target="#modal-edit<?php echo $bahan->id_bahan ?>" class="btn btn-primary waves-effect waves-light"><span data-toggle="tooltip" data-original-title="Ubah"><font color="white"><i class="fas fa-pencil-alt"></i></font></span></a>
+                 <a onclick="deleteConfirm('<?php echo site_url('adm/bahan/hapus/'.$bahan->id_bahan); ?>')" href="#!" data-toggle="tooltip" class="btn btn-danger waves-effect waves-light tombol-hapus" data-original-title="Hapus"><span class="icon-label" data-toggle="modal" data-target="#modal-danger"><i class="fa fa-trash"></i> </span><span class="btn-text"></span></a>
                                         </a>
                  
                                     </td>
@@ -94,17 +94,21 @@
                     <div class="modal-dialog" role="document">
                     <div class="modal-content">
                       <div class="modal-header bg-primary">
-                      <h6 class="modal-title"><font color='white'>Form Tambah Lokasi</font></h6>
+                      <h6 class="modal-title"><font color='white'>Form Tambah bahan</font></h6>
                       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                       </button>
                       </div>
-                      <form action="<?php echo site_url('adm/lokasi/add'); ?>" method="post">
+                      <form action="<?php echo site_url('adm/bahan/add'); ?>" method="post" enctype="multipart/form-data">
                       <div class="modal-body">
                         <fieldset class="form-group floating-label-form-group">
-                          <label for="email">Nama Lokasi</label>
-                          <input type="text" name="nm_lokasi" class="form-control  round <?php echo form_error('nm_lokasi') ? 'is-invalid':'' ?>" id="email" required oninvalid="this.setCustomValidity('Harap Diisi...')" oninput="setCustomValidity('')">
-                       <font color="red"><?php echo form_error('nm_lokasi') ?></font>
+                          <label for="email">Nama bahan</label>
+                          <input type="text" name="nm_bahan" class="form-control  round <?php echo form_error('nm_bahan') ? 'is-invalid':'' ?>" id="email" required oninvalid="this.setCustomValidity('Harap Diisi...')" oninput="setCustomValidity('')">
+                       <font color="red"><?php echo form_error('nm_bahan') ?></font>
+                        </fieldset>
+                        <fieldset class="form-group floating-label-form-group">
+                          <label for="email">Upload Foto</label>
+                          <input type="file" name="foto" class="form-control">
                         </fieldset>
                         <fieldset class="form-group floating-label-form-group">
                           <label for="email">Keterangan</label>
@@ -130,28 +134,34 @@
 
 
  <!-- Modal -->
- <?php $no=0; foreach ($lokasiku as $lokasi): ?>
-                  <div class="modal fade text-left" id="modal-edit<?php echo $lokasi->id_lokasi ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel16" aria-hidden="true">
+ <?php $no=0; foreach ($bahanku as $bahan): ?>
+                  <div class="modal fade text-left" id="modal-edit<?php echo $bahan->id_bahan ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel16" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                     <div class="modal-content">
                       <div class="modal-header bg-primary">
-                      <h6 class="modal-title"><font color='white'>Edit Data Lokasi</font></h6>
+                      <h6 class="modal-title"><font color='white'>Edit Data bahan</font></h6>
                       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                       </button>
                       </div>
-                      <form action="<?php echo site_url('adm/lokasi/edit'); ?>" method="post">
-                      <input type="hidden" readonly value="<?=$lokasi->id_lokasi;?>" name="id_lokasi" class="form-control" >
+                      <form action="<?php echo site_url('adm/bahan/edit'); ?>" method="post" enctype="multipart/form-data">
+                      <input type="hidden" readonly value="<?=$bahan->id_bahan;?>" name="id_bahan" class="form-control" >
+                      <input type="hidden" name="old_image" value="<?php echo $bahan->foto ?>"/>
                       <div class="modal-body">
                         <fieldset class="form-group floating-label-form-group">
-                          <label for="email">lokasi Distributor</label>
-                          <input type="text" value="<?php echo $lokasi->nm_lokasi ?>" required name="nm_lokasi" class="form-control  round <?php echo form_error('nm_lokasi') ? 'is-invalid':'' ?>" id="email">
-                       <font color="red"><?php echo form_error('nm_lokasi') ?></font>
+                          <label for="email">bahan Distributor</label>
+                          <input type="text" value="<?php echo $bahan->nm_bahan ?>" required name="nm_bahan" class="form-control  round <?php echo form_error('nm_bahan') ? 'is-invalid':'' ?>" id="email">
+                       <font color="red"><?php echo form_error('nm_bahan') ?></font>
+                        </fieldset>
+
+                        <fieldset class="form-group floating-label-form-group">
+                          <label for="email">Upload Foto</label>
+                          <input type="file" name="foto" class="form-control">
                         </fieldset>
 
                         <fieldset class="form-group floating-label-form-group">
                           <label for="email">Keterangan</label>
-                          <textarea class="form-control" name="keterangan" id="title1" rows="3"><?php echo $lokasi->keterangan ?></textarea>
+                          <textarea class="form-control" name="keterangan" id="title1" rows="3"><?php echo $bahan->keterangan ?></textarea>
                         </fieldset>
                                      
       
@@ -206,7 +216,3 @@ function deleteConfirm(url){
     $('#deleteModal').modal();
 }
 </script>
-
-
-
-                  

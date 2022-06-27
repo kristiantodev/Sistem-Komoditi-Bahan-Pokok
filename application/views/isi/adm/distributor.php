@@ -13,7 +13,7 @@
                         <div class="row">
                             <div class="col-sm-12">
                                 <div class="page-title-box">
-                                    <h3 class="page-title"><b><i class="fas fa-map-marker-alt"></i>&nbsp; Data Lokasi</b></h3>
+                                    <h3 class="page-title"><b><i class="fas fa-dolly"></i>&nbsp; Data Distributor</b></h3>
                                     <ol class="breadcrumb">
                                         <li class="breadcrumb-item active">Kementerian Perdagangan Sumatera Selatan</li>
                                     </ol>
@@ -42,7 +42,10 @@
                                                 <thead>
                                                 <tr>
                                     <th width="9"><b>No</b></th>
-                                    <th><b>Nama Lokasi</b></th>
+                                    <th><b>Distributor</b></th>
+                                    <th><b>Jenis</b></th>
+                                    <th><b>Telepon</b></th>
+                                    <th><b>Alamat</b></th>
                                     <th><b>Keterangan</b></th>
                                     <th width="150"><b>Aksi</b></th>
                                 </tr>
@@ -51,16 +54,19 @@
     
                                                 <tbody>
                                              <?php $no=1;
-         foreach ($lokasiku as $lokasi): ?>
+         foreach ($distributorku as $distributor): ?>
                                 
                                 <tr>
                                     <td width="7" align="center"><?php echo $no++; ?></td>
-                                    <td><?php echo $lokasi->nm_lokasi ?></td>
-                                    <td><?php echo $lokasi->keterangan ?></td>
+                                    <td><?php echo $distributor->nm_distributor ?></td>
+                                    <td><?php echo $distributor->nm_jenis ?></td>
+                                    <td><?php echo $distributor->telpon ?></td>
+                                    <td><?php echo $distributor->alamat ?></td>
+                                    <td><?php echo $distributor->keterangan ?></td>
                                     <td>
 
-                 <a data-toggle="modal" data-target="#modal-edit<?php echo $lokasi->id_lokasi ?>" class="btn btn-primary waves-effect waves-light"><span data-toggle="tooltip" data-original-title="Ubah"><font color="white"><i class="fas fa-pencil-alt"></i></font></span></a>
-                 <a onclick="deleteConfirm('<?php echo site_url('adm/lokasi/hapus/'.$lokasi->id_lokasi); ?>')" href="#!" data-toggle="tooltip" class="btn btn-danger waves-effect waves-light tombol-hapus" data-original-title="Hapus"><span class="icon-label" data-toggle="modal" data-target="#modal-danger"><i class="fa fa-trash"></i> </span><span class="btn-text"></span></a>
+                 <a data-toggle="modal" data-target="#modal-edit<?php echo $distributor->id_distributor ?>" class="btn btn-primary waves-effect waves-light"><span data-toggle="tooltip" data-original-title="Ubah"><font color="white"><i class="fas fa-pencil-alt"></i></font></span></a>
+                 <a onclick="deleteConfirm('<?php echo site_url('adm/distributor/hapus/'.$distributor->id_distributor); ?>')" href="#!" data-toggle="tooltip" class="btn btn-danger waves-effect waves-light tombol-hapus" data-original-title="Hapus"><span class="icon-label" data-toggle="modal" data-target="#modal-danger"><i class="fa fa-trash"></i> </span><span class="btn-text"></span></a>
                                         </a>
                  
                                     </td>
@@ -94,17 +100,33 @@
                     <div class="modal-dialog" role="document">
                     <div class="modal-content">
                       <div class="modal-header bg-primary">
-                      <h6 class="modal-title"><font color='white'>Form Tambah Lokasi</font></h6>
+                      <h6 class="modal-title"><font color='white'>Form Tambah distributor</font></h6>
                       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                       </button>
                       </div>
-                      <form action="<?php echo site_url('adm/lokasi/add'); ?>" method="post">
+                      <form action="<?php echo site_url('adm/distributor/add'); ?>" method="post">
                       <div class="modal-body">
                         <fieldset class="form-group floating-label-form-group">
-                          <label for="email">Nama Lokasi</label>
-                          <input type="text" name="nm_lokasi" class="form-control  round <?php echo form_error('nm_lokasi') ? 'is-invalid':'' ?>" id="email" required oninvalid="this.setCustomValidity('Harap Diisi...')" oninput="setCustomValidity('')">
-                       <font color="red"><?php echo form_error('nm_lokasi') ?></font>
+                          <label for="email">Nama distributor</label>
+                          <input type="text" name="nm_distributor" class="form-control  round <?php echo form_error('nm_distributor') ? 'is-invalid':'' ?>" id="email" required oninvalid="this.setCustomValidity('Harap Diisi...')" oninput="setCustomValidity('')">
+                       <font color="red"><?php echo form_error('nm_distributor') ?></font>
+                        </fieldset>
+                        <fieldset class="form-group floating-label-form-group">
+                          <label for="email">Jenis Distributor</label>
+                          <select name="id_jenis" id="select" required class="custom-select">
+                  <?php foreach ($jenisku as $k): ?>
+                  <option value="<?php echo $k->id_jenis ?>"><?php echo $k->nm_jenis ?></option>
+                  <?php endforeach; ?>
+                </select>
+                        </fieldset>
+                        <fieldset class="form-group floating-label-form-group">
+                          <label for="email">Telepon</label>
+                          <input type="text" name="telpon" class="form-control">
+                        </fieldset>
+                        <fieldset class="form-group floating-label-form-group">
+                          <label for="email">Alamat</label>
+                          <input type="text" name="alamat" class="form-control">
                         </fieldset>
                         <fieldset class="form-group floating-label-form-group">
                           <label for="email">Keterangan</label>
@@ -130,28 +152,56 @@
 
 
  <!-- Modal -->
- <?php $no=0; foreach ($lokasiku as $lokasi): ?>
-                  <div class="modal fade text-left" id="modal-edit<?php echo $lokasi->id_lokasi ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel16" aria-hidden="true">
+ <?php $no=0; foreach ($distributorku as $distributor): ?>
+                  <div class="modal fade text-left" id="modal-edit<?php echo $distributor->id_distributor ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel16" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                     <div class="modal-content">
                       <div class="modal-header bg-primary">
-                      <h6 class="modal-title"><font color='white'>Edit Data Lokasi</font></h6>
+                      <h6 class="modal-title"><font color='white'>Edit Data distributor</font></h6>
                       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                       </button>
                       </div>
-                      <form action="<?php echo site_url('adm/lokasi/edit'); ?>" method="post">
-                      <input type="hidden" readonly value="<?=$lokasi->id_lokasi;?>" name="id_lokasi" class="form-control" >
+                      <form action="<?php echo site_url('adm/distributor/edit'); ?>" method="post">
+                      <input type="hidden" readonly value="<?=$distributor->id_distributor;?>" name="id_distributor" class="form-control" >
                       <div class="modal-body">
                         <fieldset class="form-group floating-label-form-group">
-                          <label for="email">lokasi Distributor</label>
-                          <input type="text" value="<?php echo $lokasi->nm_lokasi ?>" required name="nm_lokasi" class="form-control  round <?php echo form_error('nm_lokasi') ? 'is-invalid':'' ?>" id="email">
-                       <font color="red"><?php echo form_error('nm_lokasi') ?></font>
+                          <label for="email">Nama Distributor</label>
+                          <input type="text" value="<?php echo $distributor->nm_distributor ?>" required name="nm_distributor" class="form-control  round <?php echo form_error('nm_distributor') ? 'is-invalid':'' ?>" id="email">
+                       <font color="red"><?php echo form_error('nm_distributor') ?></font>
+                        </fieldset>
+
+                        <fieldset class="form-group floating-label-form-group">
+                          <label for="email">Jenis Distributor</label>
+                          <select name="id_jenis" id="select" required class="custom-select">
+            
+                  <?php foreach ($jenisku as $k): ?>
+                  <option value="<?php echo $k->id_jenis ?>"
+
+                             <?php
+                              if ($distributor->id_jenis == $k->id_jenis){
+                              echo "selected";
+                                    }else{
+                              echo "";
+                              }
+                              ?>
+                  ><?php echo $k->nm_jenis ?></option>
+                  <?php endforeach; ?>
+                </select>
+                        </fieldset>              
+      
+                        <fieldset class="form-group floating-label-form-group">
+                          <label for="email">Telepon</label>
+                          <input type="text" value="<?=$distributor->telpon;?>" name="telpon" class="form-control">
+                        </fieldset>
+                        <fieldset class="form-group floating-label-form-group">
+                          <label for="email">Alamat</label>
+                          <input type="text" value="<?=$distributor->alamat;?>" name="alamat" class="form-control">
                         </fieldset>
 
                         <fieldset class="form-group floating-label-form-group">
                           <label for="email">Keterangan</label>
-                          <textarea class="form-control" name="keterangan" id="title1" rows="3"><?php echo $lokasi->keterangan ?></textarea>
+                          <textarea class="form-control" name="keterangan" id="title1" rows="3"><?php echo $distributor->keterangan ?></textarea>
                         </fieldset>
                                      
       

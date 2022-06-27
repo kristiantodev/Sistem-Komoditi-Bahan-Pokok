@@ -121,21 +121,17 @@
                                 <li><a href="<?php echo site_url();?>adm/jdistributor"><i class="fas fa-mars-double"></i> &nbsp;Jenis Distributor</a></li>
                                     <li><a href="<?php echo site_url();?>adm/distributor"><i class="fas fa-dolly"></i> &nbsp;Distributor</a></li>
                                     <li><a href="<?php echo site_url();?>adm/lokasi"><i class="fas fa-map-marker-alt"></i> &nbsp;Lokasi</a></li>
-                                    <li><a href="<?php echo site_url();?>adm/pangan"><i class="fas fa-box-open"></i> &nbsp;Bahan Pangan</a></li>
+                                    <li><a href="<?php echo site_url();?>adm/bahan"><i class="fas fa-box-open"></i> &nbsp;Bahan Pangan</a></li>
                                 </ul>
                             </li>
 
                              <li>
                                 <a href="javascript:void(0);" class="waves-effect"><font color=""><i class="fas fa-chalkboard-teacher"></i></font><span> Komoditi<span class="float-right menu-arrow"><i class="mdi mdi-plus"></i></span> </span></a>
                                 <ul class="submenu">
-                                    <li><a href="<?php echo site_url();?>adm/csi/alumni"><i class="far fa-meh"></i> &nbsp;CSI Alumni</a></li>
-                                    <li><a href="<?php echo site_url();?>adm/csi/stakeholder"><i class="far fa-meh"></i> &nbsp;CSI Stakeholder</a></li>
-                                    <li><a href="<?php echo site_url();?>adm/ipm/alumni"><i class="fas fa-chart-line"></i> &nbsp;IPA-Matrix Alumni</a></li>
-                                    <li><a href="<?php echo site_url();?>adm/ipm/stakeholder"><i class="fas fa-chart-line"></i> &nbsp;IPA-MatrixStakeholder</a></li>
-                                </ul>
+                                    <li><a href="<?php echo site_url();?>adm/update_harga"><i class="far fa-money-bill-alt "></i> &nbsp;Update Harga</a></li>
+                                    <li><a href="<?php echo site_url();?>adm/persediaan"><i class="fas fa-balance-scale"></i> &nbsp;Persediaan</a></li>
+                                    </ul>
                             </li>
-
-
 
                              <li>
                                 <a href="<?php echo base_url(). 'login/logout' ?>" class="waves-effect">
