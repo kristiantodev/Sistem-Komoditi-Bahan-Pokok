@@ -1,0 +1,121 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no">
+<title>Sistem Komoditi Kementerian Perdagangan</title>
+<link rel="shortcut icon" href="<?php echo base_url();?>assets/images/logo.png">
+<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/assets-front/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/assets-front/css/bootstrap-slider.min.css">
+<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/assets-front/css/fontawesome-all.min.css">
+<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/assets-front/css/slick.css">
+<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/assets-front/css/style.css">
+<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/assets-front/css/custom.css">
+</head>
+
+<body>
+<div id="header-holder" class="main-header">
+    <div class="bg-animation">
+        <div class="graphic-show">
+            <img class="fix-size" src="<?php echo base_url();?>assets/assets-front/images/bahan.png" alt="">
+            <img class="img img1" src="<?php echo base_url();?>assets/assets-front/images/graphic2.png" alt="">
+            <img class="img img2" src="<?php echo base_url();?>assets/assets-front/images/bahan.png" alt="">
+            
+        </div>
+    </div>
+    <nav id="nav" class="navbar navbar-default navbar-full">
+        <div class="container-fluid">
+            <div class="container container-nav">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="navbar-header">
+                        <img src="<?php echo base_url();?>assets/images/logoo.png" height='100'>
+                        </div>
+                        <div style="height: 1px;" role="main" aria-expanded="false" class="navbar-collapse collapse" id="bs">
+                            <ul class="nav navbar-nav navbar-right">
+                                <li><a href="index.html"><i class="fas fa-box-open"></i> Home</a></li>
+                                <li><a href="index.html"><i class='fas fa-exclamation-circle'></i>&nbsp; Tentang Kami</a></li>
+                                <li><a href="index.html"><i class='fas fa-chart-line'></i>&nbsp; Statistik Per Wilayah</a></li>
+                                <li><a href="index.html"><i class='fas fa-chart-pie'></i>&nbsp; Statistik Per Komoditi</a></li>
+                                <li><a href="index.html"><i class="fas fa-phone-square "></i> Kontak</a></li>
+                                
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div id="top-content" class="container-fluid">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div id="main-slider">
+                        <div class="slide">
+                            <div class="spacer"></div>
+                            <div class="big-title">KEMENTERIAN <span>PERDAGANGAN</span><br>SUMATERA SELATAN</div>
+                            <p><i class="fas fa-box-open"></i> Home</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <img class="header-graphic" src="<?php echo base_url();?>assets/assets-front/images/graphic1.png" alt="" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="pricing" class="container-fluid">
+    <div class="bg-color"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row-title">Web Hosting Plans</div>
+                <div class="row-subtitle">Choose what's best</div>
+            </div>
+        </div>
+        <div class="row">
+
+        <?php $no=1; $i=1; foreach ($update as $p){ ?>
+            <div class="col-sm-12 col-md-3">
+                <div class="pricing-box pricing-unity pricing-color3">
+                    <div class="pricing-content">
+                        <div class="pricing-icon">
+                            <img src="<?php echo base_url('assets/images/bahan/'.$p->foto) ?>" alt="">
+                        </div>
+                        <div class="pricing-title"><?=$p->nm_bahan;?> <br>(Naik 20%)</div>
+                        <div class="pricing-price"><?="Rp " . number_format($p->harga,0,',','.');?></div>
+                        <div class="pricing-details">
+                            <p><?=$p->nm_lokasi;?></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+         <?php $i++; } ?>      
+        </div>
+    </div>
+</div>
+
+<div id="footer" class="container-fluid">
+    
+            <div class="col-xs-6 col-sm-4 col-md-3">
+                <div class="address-holder">
+                    <div class="phone"><i class="fas fa-phone"></i> 00 285 900 38502</div>
+                    <div class="email"><i class="fas fa-envelope"></i> hello@hostify.com</div>
+                    <div class="address">
+                        <i class="fas fa-map-marker"></i> 
+                        <div>City Avenue, Office 64,<br>
+                            Floor 6,  Milbourne,<br>
+                            Australia.</div>
+                    </div>
+                </div>
+            </div>
+</div>
+<script src="<?php echo base_url();?>assets/assets-front/js/jquery.min.js"></script>
+<script src="<?php echo base_url();?>assets/assets-front/js/bootstrap.min.js"></script>
+<script src="<?php echo base_url();?>assets/assets-front/js/bootstrap-slider.min.js"></script>
+<script src="<?php echo base_url();?>assets/assets-front/js/slick.min.js"></script>
+<script src="<?php echo base_url();?>assets/assets-front/js/main.js"></script>
+</body>
+</html>

@@ -134,7 +134,7 @@
                             </li>
 
                              <li>
-                                <a href="<?php echo base_url(). 'login/logout' ?>" class="waves-effect">
+                                <a href="<?php echo site_url();?>adm/laporan" class="waves-effect">
                                     <font color=""><i class="fas fa-folder-open "></i></font><span> Laporan</span>
                                 </a>
                             </li>   
