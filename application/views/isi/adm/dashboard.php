@@ -11,7 +11,7 @@
                         <div class="row">
                             <div class="col-sm-12">
                                 <div class="page-title-box">
-                                <h3 class="page-title"><b><i class='fa fa-home'></i>&nbsp;Selamat Datang di Sistem Komoditi Bahan Pangan</b></h3>
+                                <h3 class="page-title"><b><i class='fas fa-chart-line'></i>&nbsp;Selamat Datang di Sistem Komoditi Bahan Pangan</b></h3>
                                     <ol class="breadcrumb">
                                         <li class="breadcrumb-item active">Dinas Perdagangan Sumatera Selatan</li>
                                     </ol>

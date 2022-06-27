@@ -111,20 +111,17 @@
                           
                             <li>
                                 <a href="<?php echo site_url();?>adm/dashboard" class="waves-effect">
-                                    <font color=""><i class="fa fa-home"></i></font><span> Dashboard </span>
-                                </a>
-                            </li>
-
-                             <li>
-                                <a href="<?php echo site_url();?>adm/distributor" class="waves-effect">
-                                    <font color=""><i class="fas fa-shipping-fast "></i></font><span> Distributor</span>
+                                    <font color=""><i class="fas fa-chart-line"></i></font><span> Dashboard </span>
                                 </a>
                             </li>
 
                             <li>
-                                <a href="<?php echo site_url();?>adm/distributor" class="waves-effect">
-                                    <font color=""><i class="fas fa-shopping-cart"></i></font><span> Bahan Pangan</span>
-                                </a>
+                                <a href="javascript:void(0);" class="waves-effect"><font color=""><i class="fas fa-shipping-fast"></i></font><span> Data Master<span class="float-right menu-arrow"><i class="mdi mdi-plus"></i></span> </span></a>
+                                <ul class="submenu">
+                                    <li><a href="<?php echo site_url();?>adm/distributor"><i class="fas fa-dolly"></i> &nbsp;Distributor</a></li>
+                                    <li><a href="<?php echo site_url();?>adm/pasar"><i class="fas fa-shopping-cart"></i> &nbsp;Pasar</a></li>
+                                    <li><a href="<?php echo site_url();?>adm/pangan"><i class="fas fa-box-open"></i> &nbsp;Bahan Pangan</a></li>
+                                </ul>
                             </li>
 
                              <li>
