@@ -17,10 +17,10 @@
 <div id="header-holder" class="main-header">
     <div class="bg-animation">
         <div class="graphic-show">
-            <img class="fix-size" src="<?php echo base_url();?>assets/assets-front/images/bahan.png" alt="">
+            <img class="fix-size" src="<?php echo base_url();?>assets/assets-front/images/graphic1.png" alt="">
             <img class="img img1" src="<?php echo base_url();?>assets/assets-front/images/graphic2.png" alt="">
             <img class="img img2" src="<?php echo base_url();?>assets/assets-front/images/bahan.png" alt="">
-            
+            <img class="img img3" src="<?php echo base_url();?>assets/assets-front/images/graphic1.png" alt="">
         </div>
     </div>
     <nav id="nav" class="navbar navbar-default navbar-full">
@@ -52,13 +52,13 @@
                     <div id="main-slider">
                         <div class="slide">
                             <div class="spacer"></div>
-                            <div class="big-title">KEMENTERIAN <span>PERDAGANGAN</span><br>SUMATERA SELATAN</div>
+                            <div class="big-title">SISTEM INFORMASI <span>KOMODITI</span><br>DINAS PERDAGANGAN</div>
                             <p><i class="fas fa-box-open"></i> Home</p>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6">
-                    <img class="header-graphic" src="<?php echo base_url();?>assets/assets-front/images/graphic1.png" alt="" />
+                 <div class="col-md-6">
+                    <img class="header-graphic" src="<?php echo base_url();?>assets/assets-front/images/graphic2.png" alt="" />
                 </div>
             </div>
         </div>
@@ -80,17 +80,18 @@
             <div class="col-sm-12 col-md-3">
                 <div class="pricing-box pricing-unity pricing-color3">
                     <div class="pricing-content">
-                        <div class="pricing-icon">
-                            <img src="<?php echo base_url('assets/images/bahan/'.$p->foto) ?>" alt="">
+                        <div>
+                            <img src="<?php echo base_url('assets/images/bahan/'.$p->foto) ?>" alt="" height='155' width='225'>
                         </div>
                         <div class="pricing-title"><?=$p->nm_bahan;?> <br>(Naik 20%)</div>
                         <div class="pricing-price"><?="Rp " . number_format($p->harga,0,',','.');?></div>
                         <div class="pricing-details">
-                            <p><?=$p->nm_lokasi;?></p>
+                            <p><?=$p->nm_lokasi;?><br>(Update : <?=$p->tgl_harga;?>)</p>
                         </div>
                     </div>
                 </div>
             </div>
+
          <?php $i++; } ?>      
         </div>
     </div>
