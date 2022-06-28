@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 27 Jun 2022 pada 12.40
+-- Waktu pembuatan: 28 Jun 2022 pada 07.43
 -- Versi server: 5.7.21-log
 -- Versi PHP: 8.0.0
 
@@ -114,7 +114,8 @@ CREATE TABLE `lokasi` (
 INSERT INTO `lokasi` (`id_lokasi`, `nm_lokasi`, `keterangan`, `deleted`) VALUES
 (1, 'Palembang', '-', 0),
 (2, 'Ogan Komelir Ilir', '', 0),
-(3, 'Pasar OKI 2', '2', 1);
+(3, 'Pasar OKI 2', '2', 1),
+(4, 'Cirebon', '', 0);
 
 -- --------------------------------------------------------
 
@@ -148,7 +149,17 @@ INSERT INTO `persediaan` (`id_persediaan`, `id_distributor`, `id_lokasi`, `id_ba
 (9, 3, 1, 1, 100, 'Ton', '2022-06-27'),
 (10, 3, 1, 2, 125, 'Ton', '2022-06-27'),
 (11, 3, 1, 4, 100, 'Ton', '2022-06-27'),
-(12, 3, 1, 5, 125, 'Ton', '2022-06-27');
+(12, 3, 1, 5, 125, 'Ton', '2022-06-27'),
+(13, 3, 2, 1, 1000, 'Kg', '2022-06-27'),
+(14, 3, 2, 2, 1000, 'Liter', '2022-06-27'),
+(15, 3, 2, 4, 10, 'Ton', '2022-06-27'),
+(16, 3, 2, 5, 250, 'Kg', '2022-06-27'),
+(17, 3, 2, 6, 550, 'Kg', '2022-06-27'),
+(18, 1, 1, 1, 0, 'Ton', '2022-06-28'),
+(19, 1, 1, 2, 0, 'Ton', '2022-06-28'),
+(20, 1, 1, 4, 0, 'Ton', '2022-06-28'),
+(21, 1, 1, 5, 0, 'Ton', '2022-06-28'),
+(22, 1, 1, 6, 0, 'Ton', '2022-06-28');
 
 -- --------------------------------------------------------
 
@@ -180,7 +191,13 @@ INSERT INTO `update_harga` (`id`, `id_bahan`, `id_lokasi`, `harga`, `tgl_harga`,
 (13, 1, 2, 10000, '2022-06-27', 'Kg'),
 (14, 2, 2, 22500, '2022-06-27', 'Liter'),
 (15, 4, 2, 10500, '2022-06-27', 'Kg'),
-(16, 5, 2, 25000, '2022-06-27', 'Kg');
+(16, 5, 2, 25000, '2022-06-27', 'Kg'),
+(17, 1, 1, 12000, '2022-06-28', 'Kg'),
+(18, 2, 1, 13000, '2022-06-28', 'Kg'),
+(19, 4, 1, 15000, '2022-06-28', 'Kg'),
+(20, 5, 1, 12500, '2022-06-28', 'Kg'),
+(21, 6, 1, 30000, '2022-06-28', 'Kg'),
+(22, 1, 1, 12000, '2022-06-29', 'Kg');
 
 -- --------------------------------------------------------
 
@@ -202,7 +219,6 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id_user`, `username`, `password`, `nm_user`, `level`, `foto`) VALUES
-('1', 'admin', '$2y$10$gULCedUyIy0vjPr9mJWHAOE6tcGdIzJwy9h8XDt0nOB4BHJIhNIeS', 'Administrator', 'Administrator', '1.jpg'),
 ('62b8556487642', 'manda', '$2y$10$Yu1ziUFIrjktqeBPpLtfiO5mWh9XXdhdwHIpYT8ThaGTXl13NJa1q', 'Manda Alamanda', 'Administrator', '1.jpg'),
 ('62b8fc3b96103', 'kris', '$2y$10$wbF8XhqQYiEZEXYBNkDD0.Rp.hvYylWcXsJoJEQSGZ7vRN9zpPWh2', 'kris', 'Administrator', '1.jpg');
 
@@ -220,7 +236,8 @@ ALTER TABLE `bahan`
 -- Indeks untuk tabel `distributor`
 --
 ALTER TABLE `distributor`
-  ADD PRIMARY KEY (`id_distributor`);
+  ADD PRIMARY KEY (`id_distributor`),
+  ADD KEY `id_jenis` (`id_jenis`);
 
 --
 -- Indeks untuk tabel `jenis_distributor`
@@ -279,19 +296,29 @@ ALTER TABLE `jenis_distributor`
 -- AUTO_INCREMENT untuk tabel `lokasi`
 --
 ALTER TABLE `lokasi`
-  MODIFY `id_lokasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_lokasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT untuk tabel `persediaan`
 --
 ALTER TABLE `persediaan`
-  MODIFY `id_persediaan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id_persediaan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT untuk tabel `update_harga`
 --
 ALTER TABLE `update_harga`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+
+--
+-- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
+--
+
+--
+-- Ketidakleluasaan untuk tabel `distributor`
+--
+ALTER TABLE `distributor`
+  ADD CONSTRAINT `distributor_ibfk_1` FOREIGN KEY (`id_jenis`) REFERENCES `jenis_distributor` (`id_jenis`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
