@@ -50,8 +50,12 @@ class Update_harga extends My_Controller {
                      "tgl_harga"=>$tgl,
                      "satuan"=>$satuan
                  );
-                 $this->db->insert('update_harga',$data);
-                 $i++;
+
+                $cekQuery = $this->db->query("SELECT * FROM update_harga WHERE id_bahan = '$id_bahan' AND id_lokasi= '$id_lokasi' AND tgl_harga='$tgl'")->result_array();
+                if(count($cekQuery) <= 0){
+                   $this->db->insert('update_harga',$data);
+                }
+                $i++;
             }
 
             $this->session->set_flashdata('sukses',"berhasil");

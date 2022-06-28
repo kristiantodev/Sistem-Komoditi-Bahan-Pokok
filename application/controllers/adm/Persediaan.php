@@ -56,7 +56,11 @@ class Persediaan extends My_Controller {
                      "satuan"=>$satuan,
                      "id_distributor"=>$distributor
                  );
-                 $this->db->insert('persediaan',$data);
+
+                $cekQuery = $this->db->query("SELECT * FROM persediaan WHERE id_bahan = '$id_bahan' AND id_lokasi= '$id_lokasi' AND update_persediaan='$tgl' AND id_distributor='$distributor'")->result_array();
+                if(count($cekQuery) <= 0){
+                    $this->db->insert('persediaan',$data);
+                }
                  $i++;
             }
 
