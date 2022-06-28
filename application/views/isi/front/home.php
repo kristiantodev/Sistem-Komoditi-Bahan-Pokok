@@ -76,6 +76,29 @@
         </div>
         <div class="row">
 
+        <?php
+function tgl_indo($tanggal){
+	$bulan = array (
+		1 =>   'Januari',
+		'Februari',
+		'Maret',
+		'April',
+		'Mei',
+		'Juni',
+		'Juli',
+		'Agustus',
+		'September',
+		'Oktober',
+		'November',
+		'Desember'
+	);
+	$pecahkan = explode('-', $tanggal);
+ 
+	return $pecahkan[2] . ' ' . $bulan[ (int)$pecahkan[1] ] . ' ' . $pecahkan[0];
+}
+
+?>
+
         <?php $no=1; $i=1; foreach ($update as $p){ ?>
             <div class="col-sm-12 col-md-3">
                 <div class="pricing-box pricing-unity pricing-color3">
@@ -86,7 +109,7 @@
                         <div class="pricing-title"><?=$p->nm_bahan;?> <br>(Naik 20%)</div>
                         <div class="pricing-price"><?="Rp " . number_format($p->harga,0,',','.');?></div>
                         <div class="pricing-details">
-                            <p><?=$p->nm_lokasi;?><br>(Update : <?=$p->tgl_harga;?>)</p>
+                            <p><?=$p->nm_lokasi;?><br>(Update : <?php echo tgl_indo($p->tgl_harga); ?>)</p>
                         </div>
                     </div>
                 </div>
