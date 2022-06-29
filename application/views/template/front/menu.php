@@ -4,7 +4,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="navbar-header">
-                        <img src="<?php echo base_url();?>assets/images/logoo.png" height='100'>
+                        <a href="<?php echo site_url();?>informasi"><img src="<?php echo base_url();?>assets/images/logoo.png" height='100'></a>
                         </div>
                         <div style="height: 1px;" role="main" aria-expanded="false" class="navbar-collapse collapse" id="bs">
                             <ul class="nav navbar-nav navbar-right">

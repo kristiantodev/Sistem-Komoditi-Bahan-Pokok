@@ -89,21 +89,21 @@
 
                              
 
-                            <!-- <div class="row">
-                                <div class="col-xl-6">
+                           <div class="row">
+                                <div class="col-xl-12">
                                     <div class="card m-b-20">
                                         <div class="card-body">
             
-                                            <center><h4 class="mt-0 header-title"><b>Trend Bahan Pokok</b></h4></center>
+                                            <center><h4 class="mt-0 header-title"><b>Harga Bahan Pokok Tertinggi</b></h4></center>
             
                                                         
-                                            <canvas id="chart_1" height="180"></canvas>
+                                            <canvas id="pokok_8" height="200"></canvas>
             
                                         </div>
                                     </div>
                                 </div>
             
-                                <div class="col-xl-6">
+                                <!-- <div class="col-xl-6">
                                     <div class="card m-b-20">
                                         <div class="card-body">
             
@@ -114,8 +114,8 @@
             
                                         </div>
                                     </div>
-                                </div> <!-- end col
-                            </div> <!-- end row -->
+                                </div>  -->
+                            </div> 
 
                             
                                
@@ -134,3 +134,91 @@
     <script src="<?php echo base_url();?>assets/Chart.min.js"></script>
     <!-- Superieur Admin for Chart purposes -->
     <script src="<?php echo base_url();?>assets/widget-charts2.js"></script>
+
+    <script>
+    
+$(function () {
+
+'use strict';
+
+    if( $('#pokok_8').length > 0 ){
+		var ctx2 = document.getElementById("pokok_8").getContext("2d");
+		var data2 = {
+			labels: [
+                <?php foreach ($grafik as $grafik2): ?>
+          "<?php echo $grafik2->nm_bahan ?>",
+         <?php endforeach; ?>
+            ],
+			datasets: [
+			{
+				label: "Harga Rp",
+				backgroundColor: "#05b085",
+				borderColor: "#05b085",
+				data: [
+                    <?php foreach ($grafik as $grafik4): ?>
+                    <?php echo $grafik4->harga ?>,
+
+                    <?php endforeach; ?>
+                ]
+			}
+			]
+		};
+		
+		var hBar = new Chart(ctx2, {
+			type:"bar",
+			data:data2,
+			
+			options: {
+				tooltips: {
+					mode:"label"
+				},
+				scales: {
+					yAxes: [{
+						stacked: true,
+						gridLines: {
+							color: "rgba(135,135,135,0)",
+						},
+						ticks: {
+							fontFamily: "Poppins",
+							fontColor:"#878787"
+						}
+					}],
+					xAxes: [{
+						stacked: true,
+						gridLines: {
+							color: "rgba(135,135,135,0)",
+						},
+						ticks: {
+							fontFamily: "Poppins",
+							fontColor:"#878787"
+						}
+					}],
+					
+				},
+				elements:{
+					point: {
+						hitRadius:40
+					}
+				},
+				animation: {
+					duration:	3000
+				},
+				responsive: true,
+				maintainAspectRatio:false,
+				legend: {
+					display: false,
+				},
+				
+				tooltip: {
+					backgroundColor:'rgba(33,33,33,1)',
+					cornerRadius:0,
+					footerFontFamily:"'Poppins'"
+				}
+				
+			}
+		});
+	}
+    
+
+  }); // End of use strict
+    </script>        

@@ -647,18 +647,6 @@ $( document ).ready(function() {
 				backgroundColor: "#05b085",
 				borderColor: "#05b085",
 				data: [15, 20, 70, 51, 36, 85, 50]
-			},
-			{
-				label: "My Second dataset",
-				backgroundColor: "#ef483e",
-				borderColor: "#ef483e",
-				data: [28, 48, 40, 19, 86, 27, 90]
-			},
-			{
-				label: "My Third dataset",
-				backgroundColor: "#ba69aa",
-				borderColor: "#ba69aa",
-				data: [8, 28, 50, 29, 76, 77, 40]
 			}
 			]
 		};

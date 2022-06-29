@@ -15,10 +15,12 @@ class Dashboard extends My_Controller {
 
 	public function index()
 	{
-
+ 
+    $persediaan = $this->db->query("SELECT bahan.nm_bahan, MAX(update_harga.harga) as harga FROM update_harga LEFT JOIN bahan ON bahan.id_bahan = update_harga.id_bahan WHERE bahan.deleted=0 GROUP BY bahan.nm_bahan");
       
          $data=array(
             "periodeku" => '',
+            "grafik" => $persediaan->result(),
          
                   );
 		 $this->Mypage('isi/adm/dashboard', $data);
