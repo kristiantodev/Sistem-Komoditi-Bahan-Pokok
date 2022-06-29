@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 29 Jun 2022 pada 10.15
+-- Waktu pembuatan: 29 Jun 2022 pada 17.54
 -- Versi server: 5.7.21-log
 -- Versi PHP: 8.0.0
 
@@ -44,7 +44,8 @@ INSERT INTO `bahan` (`id_bahan`, `nm_bahan`, `foto`, `keterangan`, `deleted`) VA
 (2, 'Minyak', '398077844.jpg', '', 0),
 (4, 'Jagung', '278742210.jpg', '', 0),
 (5, 'Telur', '1798071043.jpg', '-', 0),
-(6, 'Gula Pasir', '1017205789.jpg', 'manis', 0);
+(6, 'Gula Pasir', '1017205789.jpg', 'manis', 0),
+(7, 'Ayam', 'default.jpg', 'bakar', 0);
 
 -- --------------------------------------------------------
 
@@ -160,7 +161,13 @@ INSERT INTO `persediaan` (`id_persediaan`, `id_distributor`, `id_lokasi`, `id_ba
 (20, 1, 1, 4, 0, 'Ton', '2022-06-28'),
 (21, 1, 1, 5, 0, 'Ton', '2022-06-28'),
 (22, 1, 1, 6, 0, 'Ton', '2022-06-28'),
-(23, 1, 1, 4, 199, 'Ton', '2022-06-29');
+(23, 1, 1, 4, 199, 'Ton', '2022-06-29'),
+(24, 3, 2, 1, 0, 'Ton', '2022-06-29'),
+(25, 3, 2, 2, 0, 'Ton', '2022-06-29'),
+(26, 3, 2, 4, 0, 'Ton', '2022-06-29'),
+(27, 3, 2, 5, 0, 'Ton', '2022-06-29'),
+(28, 3, 2, 6, 0, 'Ton', '2022-06-29'),
+(29, 3, 2, 7, 0, 'Ton', '2022-06-29');
 
 -- --------------------------------------------------------
 
@@ -196,14 +203,22 @@ INSERT INTO `update_harga` (`id`, `id_bahan`, `id_lokasi`, `harga`, `tgl_harga`,
 (20, 5, 1, 12500, '2022-06-28', 'Kg'),
 (21, 6, 1, 30000, '2022-06-28', 'Kg'),
 (22, 1, 1, 12000, '2022-06-29', 'Kg'),
-(23, 2, 1, 0, '2022-06-29', 'Kg'),
-(24, 4, 1, 0, '2022-06-29', 'Kg'),
+(23, 2, 1, 12500, '2022-06-29', 'Kg'),
+(24, 4, 1, 12500, '2022-06-29', 'Kg'),
 (25, 5, 1, 12000, '2022-06-26', 'Kg'),
-(26, 6, 1, 0, '2022-06-29', 'Kg'),
+(26, 6, 1, 12500, '2022-06-29', 'Kg'),
 (27, 5, 1, 13500, '2022-06-25', 'Kg'),
 (28, 5, 1, 14500, '2022-06-24', 'Kg'),
 (29, 5, 1, 15000, '2022-06-29', 'Kg'),
-(30, 5, 1, 12500, '2022-06-30', 'Kg');
+(30, 5, 1, 13667, '2022-06-30', 'Kg'),
+(31, 1, 2, 10000, '2022-06-29', 'Kg'),
+(32, 2, 2, 12500, '2022-06-29', 'Kg'),
+(33, 4, 2, 13500, '2022-06-29', 'Kg'),
+(34, 5, 2, 12000, '2022-06-29', 'Kg'),
+(35, 6, 2, 14000, '2022-06-29', 'Kg'),
+(36, 7, 2, 15000, '2022-06-29', 'Kg'),
+(37, 7, 1, 12500, '2022-06-29', 'Kg'),
+(38, 1, 4, 12500, '2022-06-29', 'Kg');
 
 -- --------------------------------------------------------
 
@@ -284,7 +299,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT untuk tabel `bahan`
 --
 ALTER TABLE `bahan`
-  MODIFY `id_bahan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_bahan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT untuk tabel `distributor`
@@ -308,13 +323,13 @@ ALTER TABLE `lokasi`
 -- AUTO_INCREMENT untuk tabel `persediaan`
 --
 ALTER TABLE `persediaan`
-  MODIFY `id_persediaan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id_persediaan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT untuk tabel `update_harga`
 --
 ALTER TABLE `update_harga`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)

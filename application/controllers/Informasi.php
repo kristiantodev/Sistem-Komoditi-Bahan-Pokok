@@ -42,8 +42,6 @@ class Informasi extends My_Controller {
             $lokasi = $_POST['id_lokasi'];
 			$date = $_POST['tgl'];
         }else{
-			// echo "ama";die;
-			// var_dump($_POST['id_lokasi'].'======'.$_POST['tgl']);die;
             $lokasi = 1;
 			$date = date('Y-m-d');
         }
@@ -61,5 +59,35 @@ class Informasi extends My_Controller {
 		 $this->load->view('isi/front/statistik_wilayah',$data);
 	}
 
+	public function statistik_komoditi()
+	{
+		
+		if(isset($_POST['id_bahan']) )
+        {
+            $lokasi = $_POST['id_bahan'];
+			$date = $_POST['tgl'];
+			$update_harga = $this->db->query("SELECT*FROM update_harga 
+			LEFT JOIN bahan ON update_harga.id_bahan=bahan.id_bahan
+			LEFT JOIN lokasi ON update_harga.id_lokasi=lokasi.id_lokasi
+			WHERE bahan.deleted=0 AND bahan.id_bahan='$lokasi' AND update_harga.tgl_harga='$date'");
+			
+			$data = array(
+						"update"=>$update_harga->result(),
+						"tgl" => $date,
+						"wilayah"=>$update_harga->result_array(),
+					);
+
+        }else{
+            $data = array(
+						"update"=>[],
+						"tgl" => '',
+						"wilayah"=>[],
+					);
+        }
+
+	
+
+		 $this->load->view('isi/front/statistik_komiditi',$data);
+	}
 	
 }
