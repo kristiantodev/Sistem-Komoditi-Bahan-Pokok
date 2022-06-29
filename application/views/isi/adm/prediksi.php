@@ -11,14 +11,17 @@
                         <div class="row">
                             <div class="col-sm-12">
                                 <div class="page-title-box">
-                                    <h3 class="page-title"><b><i class="fas fa-percent"></i>&nbsp; Prediksi Harga Bahan Pokok</b></h3>
+                                    <h3 class="page-title"><b><i class="fas fa-percent"></i>&nbsp; &nbsp; Prediksi Harga Bahan Pokok</b></h3>
                                     <ol class="breadcrumb">
                                         <li class="breadcrumb-item active">Kementerian Perdagangan Sumatera Selatan</li>
                                     </ol>
             
                                     <div class="state-information d-none d-sm-block">
                                                         
-                                
+                                    <a data-toggle="modal" data-target="#bb">
+                                            <button type="button" class="btn btn-primary waves-effect waves-light">
+                                    <i class="fa fa-search"></i> Filter Prediksi</button>
+                                </a>                    
                                         </div>
                                     </div>
                                 </div>
@@ -58,7 +61,9 @@ function tgl_indo($tanggal){
 
 
                   <div class="alert alert-ku" role="alert">
+                    
                                                     <h6><b><font color="#0285b4"><i class='fas fa-exclamation-circle'></i>&nbsp;Hasil Prediksi Harga : </b></h6>
+                                                    <?php if(count($prediksiResult)>0){  ?>      
                                                     <table>
                                                         <tr>
                                                             <td rowspan="2"><img src="<?php echo base_url('assets/images/bahan/'.$prediksiResult[0]['foto']) ?>" alt="" height="125"></td>
@@ -70,6 +75,8 @@ function tgl_indo($tanggal){
 </tr>
 
 </table>
+
+<?php } ?>
                                                   
                                                 
                                                  </font>
@@ -117,7 +124,7 @@ function tgl_indo($tanggal){
                             $predisiHarga=($prediksiResult[$i-1]['harga']+$prediksiResult[$i-2]['harga']+$prediksiResult[$i-3]['harga'])/3;
                             $mape = (($prediksiResult[$i]['harga']-$predisiHarga)/$prediksiResult[$i]['harga']);
                             if($mape < 0){
-                                echo "0 %";
+                                echo number_format(($mape*100)*-1,2)." %";
                             }else{
                                 echo number_format($mape*100,2)." %";
                             }
@@ -127,11 +134,7 @@ function tgl_indo($tanggal){
                         </td>
                                 </tr>
 
-<?php    
-}
-}
-
-?>
+<?php    } ?>
 
 <tr bgcolor="87CEFA">
     <td><b>
@@ -156,8 +159,8 @@ function tgl_indo($tanggal){
     </b></td>
 </tr>
 
- 
- 
+<?php } ?>
+
                                                 </tbody>
                                                 
                                             </table>
@@ -178,3 +181,70 @@ function tgl_indo($tanggal){
                     </div> <!-- container-fluid -->
 
                 </div> <!-- content -->
+
+
+                                       <!-- Modal -->
+                                       <div class="modal fade text-left" id="bb" tabindex="-1" role="dialog" aria-labelledby="myModalLabel16" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header bg-primary">
+                      <h6 class="modal-title"><font color='white'>Prediksi Harga Komoditas</font></h6>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                      </div>
+                      <form action="<?php echo site_url('adm/prediksi'); ?>" method="post">
+                      <div class="modal-body">
+                        <fieldset class="form-group floating-label-form-group">
+                          <label for="email">Pilih Komoditas :</label>
+                          
+                          <?php
+
+                            $bahan = $this->db->query("SELECT*FROM bahan WHERE deleted=0");
+                            $query = $bahan->result();
+
+                          ?>
+
+<select name="id_bahan" id="select" required class="custom-select">
+            
+            <?php foreach ($query as $k): ?>
+            <option value="<?php echo $k->id_bahan ?>"><?php echo $k->nm_bahan ?></option>
+
+<?php endforeach; ?>
+            </select>
+
+                        </fieldset>
+
+                        <fieldset class="form-group floating-label-form-group">
+                          <label for="email">Pilih Lokasi :</label>
+                          
+                          <?php
+
+                            $bahan2 = $this->db->query("SELECT*FROM lokasi WHERE deleted=0");
+                            $query2 = $bahan2->result();
+
+                          ?>
+
+<select name="id_lokasi" id="select" required class="custom-select">
+            
+            <?php foreach ($query2 as $k2): ?>
+            <option value="<?php echo $k2->id_lokasi ?>"><?php echo $k2->nm_lokasi ?></option>
+
+<?php endforeach; ?>
+            </select>
+
+                        </fieldset>   
+                      </div>
+                      <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary mr-1"  data-dismiss="modal" value="close">
+                                    <i class="fas fa-times"></i>&nbsp;Keluar
+                                </button>
+                                <button type="submit"  class="btn btn-primary">
+                                    <i class="fa fa-search"></i>&nbsp;Tampilkan Prediksi
+                                </button>
+                        
+                      </div>
+                      </form>
+                    </div>
+                    </div>
+                  </div>

@@ -15,8 +15,15 @@ class Prediksi extends My_Controller {
 
 	public function index()
 	{
-        $bahan = $_POST['id_bahan'];
-        $lokasi = $_POST['id_lokasi'];
+        
+        if( isset($_POST['id_bahan']) )
+        {
+            $bahan = $_POST['id_bahan'];
+            $lokasi = $_POST['id_lokasi'];
+        }else{
+            $bahan = 0;
+            $lokasi = 0;
+        }
         $prediksi= $this->db->query("SELECT*FROM update_harga 
         LEFT JOIN bahan ON update_harga.id_bahan=bahan.id_bahan
         LEFT JOIN lokasi ON update_harga.id_lokasi=lokasi.id_lokasi
