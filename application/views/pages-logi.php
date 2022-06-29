@@ -66,7 +66,7 @@
                             </p>
                              <br>
                             <div class="text-center text-white">
-                            <img src="<?php echo base_url();?>assets/images/logo.png" height='150'>
+                            <img src="<?php echo base_url();?>assets/images/logoo.png" height='150'>
                              
                             </div>
                             

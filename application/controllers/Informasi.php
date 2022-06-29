@@ -24,6 +24,9 @@ class Informasi extends My_Controller {
 		 $this->load->view('isi/front/about');
 	}
 
-
+	public function kontak()
+	{
+		 $this->load->view('isi/front/kontak');
+	}
 	
 }
