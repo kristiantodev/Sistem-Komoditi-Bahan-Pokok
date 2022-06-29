@@ -70,8 +70,8 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <div class="row-title">Web Hosting Plans</div>
-                <div class="row-subtitle">Choose what's best</div>
+                <div class="row-title">Daftar Harga Komoditi</div>
+                <div class="row-subtitle">Wilayah Sumatera Selatan</div>
             </div>
         </div>
         <div class="row">
