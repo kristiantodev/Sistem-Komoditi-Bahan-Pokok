@@ -74,7 +74,7 @@ function tgl_indo($tanggal){
                         <div>
                             <img src="<?php echo base_url('assets/images/bahan/'.$p->foto) ?>" alt="" height='155' width='225'>
                         </div>
-                        <div class="pricing-title"><?=$p->nm_bahan;?> <br>(Naik 20%)</div>
+                        <div class="pricing-title"> &nbsp;&nbsp;&nbsp;<?=$p->nm_bahan;?> &nbsp;&nbsp;&nbsp;</div>
                         <div class="pricing-price"><?="Rp " . number_format($p->harga,0,',','.');?></div>
                         <div class="pricing-details">
                             <p><?=$p->nm_lokasi;?><br>(Update : <?php echo tgl_indo($p->tgl_harga); ?>)</p>
