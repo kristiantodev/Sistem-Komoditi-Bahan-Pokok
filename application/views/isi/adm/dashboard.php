@@ -146,7 +146,7 @@ $(function () {
 		var data2 = {
 			labels: [
                 <?php foreach ($grafik as $grafik2): ?>
-          "<?php echo $grafik2->nm_bahan ?>",
+          "<?php echo $grafik2->nm_bahan ?> - <?php echo $grafik2->nm_lokasi ?>",
          <?php endforeach; ?>
             ],
 			datasets: [
