@@ -19,6 +19,11 @@ class Informasi extends My_Controller {
 		 $this->load->view('isi/front/home',$data);
 	}
 
+	public function about()
+	{
+		 $this->load->view('isi/front/about');
+	}
+
 
 	
 }

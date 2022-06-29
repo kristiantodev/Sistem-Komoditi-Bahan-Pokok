@@ -1,17 +1,4 @@
-<!doctype html>
-<html>
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no">
-<title>Sistem Komoditi Kementerian Perdagangan</title>
-<link rel="shortcut icon" href="<?php echo base_url();?>assets/images/logo.png">
-<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/assets-front/css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/assets-front/css/bootstrap-slider.min.css">
-<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/assets-front/css/fontawesome-all.min.css">
-<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/assets-front/css/slick.css">
-<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/assets-front/css/style.css">
-<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/assets-front/css/custom.css">
-</head>
+<?php $this->load->view('template/front/header'); ?>
 
 <body>
 <div id="header-holder" class="main-header">
@@ -23,28 +10,9 @@
             <img class="img img3" src="<?php echo base_url();?>assets/assets-front/images/graphic1.png" alt="">
         </div>
     </div>
-    <nav id="nav" class="navbar navbar-default navbar-full">
-        <div class="container-fluid">
-            <div class="container container-nav">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="navbar-header">
-                        <img src="<?php echo base_url();?>assets/images/logoo.png" height='100'>
-                        </div>
-                        <div style="height: 1px;" role="main" aria-expanded="false" class="navbar-collapse collapse" id="bs">
-                            <ul class="nav navbar-nav navbar-right">
-                                <li><a href="<?php echo site_url();?>informasi"><i class="fas fa-box-open"></i> Home</a></li>
-                                <li><a href="<?php echo site_url();?>informasi/about"><i class='fas fa-exclamation-circle'></i>&nbsp; Tentang Kami</a></li>
-                                <li><a href="<?php echo site_url();?>informasi/bahan-wilayah"><i class='fas fa-chart-line'></i>&nbsp; Statistik Per Wilayah</a></li>
-                                <li><a href="<?php echo site_url();?>informasi/bahan-komoditi"><i class='fas fa-chart-pie'></i>&nbsp; Statistik Per Komoditi</a></li>
-                                <li><a href="<?php echo site_url();?>informasi/kontak"><i class="fas fa-phone-square "></i> Kontak</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </nav>
+
+    <?php $this->load->view('template/front/menu'); ?>
+
     <div id="top-content" class="container-fluid">
         <div class="container">
             <div class="row">
@@ -101,7 +69,7 @@ function tgl_indo($tanggal){
 
         <?php $no=1; $i=1; foreach ($update as $p){ ?>
             <div class="col-sm-12 col-md-3">
-                <div class="pricing-box pricing-unity pricing-color3">
+                <div class="pricing-box pricing-unity pricing-color3 ">
                     <div class="pricing-content">
                         <div>
                             <img src="<?php echo base_url('assets/images/bahan/'.$p->foto) ?>" alt="" height='155' width='225'>
@@ -120,25 +88,4 @@ function tgl_indo($tanggal){
     </div>
 </div>
 
-<div id="footer" class="container-fluid">
-    
-            <div class="col-xs-6 col-sm-4 col-md-6">
-                <div class="address-holder">
-                    <div class="phone"><i class="fas fa-phone"></i>(0711) 310-44</div>
-                    <div class="email"><i class="fas fa-envelope"></i> disdag_sumsel@yahoo.com</div>
-                    <div class="address">
-                        
-                        <div><b><i class="fas fa-map-marker"></i>  Dinas Perdagangan Provinsi Sumatera Selatan</b><br>
-Jl. Demang Lebar Daun No. 2610<br>
-Palembang - Sumatera Selatan.</div>
-                    </div>
-                </div>
-            </div>
-</div>
-<script src="<?php echo base_url();?>assets/assets-front/js/jquery.min.js"></script>
-<script src="<?php echo base_url();?>assets/assets-front/js/bootstrap.min.js"></script>
-<script src="<?php echo base_url();?>assets/assets-front/js/bootstrap-slider.min.js"></script>
-<script src="<?php echo base_url();?>assets/assets-front/js/slick.min.js"></script>
-<script src="<?php echo base_url();?>assets/assets-front/js/main.js"></script>
-</body>
-</html>
+<?php $this->load->view('template/front/footer'); ?>
