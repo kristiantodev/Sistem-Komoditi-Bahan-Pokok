@@ -20,6 +20,29 @@
     </div>
 </div>
 
+<?php
+function tgl_indo($tanggal){
+	$bulan = array (
+		1 =>   'Januari',
+		'Februari',
+		'Maret',
+		'April',
+		'Mei',
+		'Juni',
+		'Juli',
+		'Agustus',
+		'September',
+		'Oktober',
+		'November',
+		'Desember'
+	);
+	$pecahkan = explode('-', $tanggal);
+ 
+	return $pecahkan[2] . ' ' . $bulan[ (int)$pecahkan[1] ] . ' ' . $pecahkan[0];
+}
+
+?>
+
 <div id="pricing" class="container-fluid">
     <div class="container">
         <div class="row">
@@ -41,7 +64,7 @@ $query2 = $bahan2->result();
 <select name="id_lokasi" id="select" required class="form-control">
 
 <?php foreach ($query2 as $k2): ?>
-<option value="<?php echo $k2->nm_lokasi ?>"><?php echo $k2->nm_lokasi ?></option>
+<option value="<?php echo $k2->id_lokasi ?>"><?php echo $k2->nm_lokasi ?></option>
 
 <?php endforeach; ?>
 </select>
@@ -62,8 +85,15 @@ $query2 = $bahan2->result();
 <div class="alert alert-ku" role="alert">
 <b><font color="#0285b4"><i class='fas fa-exclamation-circle'></i>&nbsp;Daftar Harga Komiditi Per Wilayah : </b><br>
                                                   
-                                                 <i class='fas fa-angle-double-right'></i>&nbsp; Lokasi :  <?=$wilayah[0]['nm_lokasi']?><br>
-                                                 <i class='fas fa-angle-double-right'></i>&nbsp; Tanggal : <?=$tgl;?></font>
+                                                 <i class='fas fa-angle-double-right'></i>&nbsp; Lokasi :  <?php 
+
+                                                 if(count($wilayah)>0){
+                                                    echo $wilayah[0]['nm_lokasi'];
+                                                 }
+                                                 
+                                                 
+                                                 ?><br>
+                                                 <i class='fas fa-angle-double-right'></i>&nbsp; Tanggal : <?php echo tgl_indo($tgl); ?></font>
                                               
                                                 </div>
 

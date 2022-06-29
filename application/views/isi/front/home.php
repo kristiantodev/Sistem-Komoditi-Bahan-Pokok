@@ -39,7 +39,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="row-title">Daftar Harga Komoditi</div>
-                <div class="row-subtitle">Wilayah Sumatera Selatan</div>
+                <div class="row-subtitle">Wilayah Sumatera Selatan 3 hari terakhir</div>
             </div>
         </div>
         <div class="row">
