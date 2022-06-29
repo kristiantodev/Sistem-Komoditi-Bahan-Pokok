@@ -20,7 +20,9 @@ class Update_harga extends My_Controller {
         $lokasi = $this->db->query("SELECT*FROM lokasi WHERE deleted=0");
         $update_harga = $this->db->query("SELECT*FROM update_harga 
         LEFT JOIN bahan ON update_harga.id_bahan=bahan.id_bahan
-        LEFT JOIN lokasi ON update_harga.id_lokasi=lokasi.id_lokasi ORDER BY update_harga.tgl_harga DESC, lokasi.nm_lokasi ASC");
+        LEFT JOIN lokasi ON update_harga.id_lokasi=lokasi.id_lokasi
+        WHERE bahan.deleted=0
+         ORDER BY update_harga.tgl_harga DESC, lokasi.nm_lokasi ASC");
 
          $data=array(
             "bahanku"=>$bahan->result(),

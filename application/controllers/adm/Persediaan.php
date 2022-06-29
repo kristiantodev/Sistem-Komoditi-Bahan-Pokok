@@ -23,6 +23,7 @@ class Persediaan extends My_Controller {
         LEFT JOIN bahan ON persediaan.id_bahan=bahan.id_bahan
         LEFT JOIN lokasi ON persediaan.id_lokasi=lokasi.id_lokasi 
         LEFT JOIN distributor ON persediaan.id_distributor=distributor.id_distributor
+        WHERE bahan.deleted=0
         ORDER BY persediaan.update_persediaan DESC, lokasi.nm_lokasi ASC, distributor.nm_distributor ASC");
 
          $data=array(

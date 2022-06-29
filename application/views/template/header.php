@@ -134,8 +134,8 @@
                             </li>
 
                              <li>
-                                <a href="<?php echo site_url();?>adm/laporan" class="waves-effect">
-                                    <font color=""><i class="fas fa-folder-open "></i></font><span> Laporan</span>
+                                <a data-toggle="modal" data-target="#bb" class="waves-effect">
+                                    <font color=""><i class="fas fa-percent"></i></font><span> Prediksi Harga</span>
                                 </a>
                             </li>   
 
@@ -173,3 +173,77 @@
 
             </div>
             <!-- Left Sidebar End -->
+
+
+                       <!-- Modal -->
+                       <div class="modal fade text-left" id="bb" tabindex="-1" role="dialog" aria-labelledby="myModalLabel16" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header bg-primary">
+                      <h6 class="modal-title"><font color='white'>Prediksi Harga Komoditas</font></h6>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                      </div>
+                      <form action="<?php echo site_url('adm/prediksi'); ?>" method="post">
+                      <div class="modal-body">
+                        <fieldset class="form-group floating-label-form-group">
+                          <label for="email">Pilih Komoditas :</label>
+                          
+                          <?php
+
+                            $bahan = $this->db->query("SELECT*FROM bahan WHERE deleted=0");
+                            $query = $bahan->result();
+
+                          ?>
+
+<select name="id_bahan" id="select" required class="custom-select">
+            
+            <?php foreach ($query as $k): ?>
+            <option value="<?php echo $k->id_bahan ?>"><?php echo $k->nm_bahan ?></option>
+
+<?php endforeach; ?>
+            </select>
+
+                        </fieldset>
+
+                        <fieldset class="form-group floating-label-form-group">
+                          <label for="email">Pilih Lokasi :</label>
+                          
+                          <?php
+
+                            $bahan2 = $this->db->query("SELECT*FROM lokasi WHERE deleted=0");
+                            $query2 = $bahan2->result();
+
+                          ?>
+
+<select name="id_lokasi" id="select" required class="custom-select">
+            
+            <?php foreach ($query2 as $k2): ?>
+            <option value="<?php echo $k2->id_lokasi ?>"><?php echo $k2->nm_lokasi ?></option>
+
+<?php endforeach; ?>
+            </select>
+
+                        </fieldset>
+
+
+                        
+
+                        
+                       
+                         
+                      </div>
+                      <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary mr-1"  data-dismiss="modal" value="close">
+                                    <i class="fas fa-times"></i>&nbsp;Keluar
+                                </button>
+                                <button type="submit"  class="btn btn-primary">
+                                    <i class="fa fa-search"></i>&nbsp;Tampilkan Prediksi
+                                </button>
+                        
+                      </div>
+                      </form>
+                    </div>
+                    </div>
+                  </div>
