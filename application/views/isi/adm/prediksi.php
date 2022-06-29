@@ -11,7 +11,7 @@
                         <div class="row">
                             <div class="col-sm-12">
                                 <div class="page-title-box">
-                                    <h3 class="page-title"><b><i class="fas fa-percent"></i>&nbsp; &nbsp; Prediksi Harga Bahan Pokok</b></h3>
+                                    <h3 class="page-title"><b><i class="fas fa-percent"></i>&nbsp; Prediksi Harga Bahan Pokok</b></h3>
                                     <ol class="breadcrumb">
                                         <li class="breadcrumb-item active">Kementerian Perdagangan Sumatera Selatan</li>
                                     </ol>
