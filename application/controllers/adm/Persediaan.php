@@ -59,7 +59,7 @@ class Persediaan extends My_Controller {
                  );
 
                 $cekQuery = $this->db->query("SELECT * FROM persediaan WHERE id_bahan = '$id_bahan' AND id_lokasi= '$id_lokasi' AND update_persediaan='$tgl' AND id_distributor='$distributor'")->result_array();
-                if(count($cekQuery) <= 0){
+                if(count($cekQuery) <= 0 && $persediaan != 0){
                     $this->db->insert('persediaan',$data);
                 }
                  $i++;
