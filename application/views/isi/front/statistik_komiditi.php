@@ -86,7 +86,7 @@
 
                     <div class="alert alert-ku" role="alert">
                         <b>
-                            <font color="#0285b4"><i class='fas fa-exclamation-circle'></i>&nbsp;Daftar Harga Komiditi Per Wilayah :
+                            <font color="#0285b4"><i class='fas fa-exclamation-circle'></i>&nbsp;Daftar Harga Komoditi Per Wilayah :
                         </b><br>
 
                         <i class='fas fa-angle-double-right'></i>&nbsp; Komoditi : <?php

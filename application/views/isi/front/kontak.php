@@ -33,15 +33,15 @@
             <div class="col-md-4">
                 <div class="info-box">
                     <div class="info-title phone-icon">Phone</div>
-                    <div class="info-details"><p>Layanan pelanggan di jam Kerja setiap Senin-Jumat 08:00 s/d 16:00 Wib</p>
+                    <div class="info-details"><p>Layanan ]di jam Kerja setiap Senin-Jumat 08:00 s/d 16:00 WIB</p>
 
-                    <p>Tanyakan semua informasi yang ingin anda ketahui dengan menelpon telp : (0711) 310-44</p></div>
+                    <p>Tanyakan semua informasi yang ingin anda ketahui dengan menelpon : (0711) 310-44</p></div>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="info-box">
                     <div class="info-title chat-icon">Email</div>
-                    <div class="info-details"><p>Kami siap menjawab setiap dan semua pertanyaan.</p>
+                    <div class="info-details"><p>Kami siap menjawab setiap pertanyaan.</p>
 
                     <p>Mulai mengobrol dengan perwakilan kami dengan menghubungi Email : disdag_sumsel@yahoo.com</p></div>
                 </div>
