@@ -16,9 +16,7 @@ class Dashboard extends My_Controller {
 	public function index()
 	{
  
-    $persediaan = $this->db->query("SELECT bahan.nm_bahan, lokasi.nm_lokasi, MAX(update_harga.harga) as harga FROM update_harga LEFT JOIN bahan ON bahan.id_bahan = update_harga.id_bahan
-    LEFT JOIN lokasi ON lokasi.id_lokasi=update_harga.id_lokasi
-    WHERE bahan.deleted=0 GROUP BY bahan.nm_bahan");
+    $persediaan = $this->db->query("SELECT bahan.nm_bahan, (SELECT nm_lokasi FROM lokasi WHERE id_lokasi=update_harga.id_lokasi) as nm_lokasi, MAX(update_harga.harga) as harga FROM update_harga LEFT JOIN bahan ON bahan.id_bahan = update_harga.id_bahan LEFT JOIN lokasi ON lokasi.id_lokasi=update_harga.id_lokasi WHERE bahan.deleted=0 GROUP BY update_harga.id_bahan");
       
          $data=array(
             "periodeku" => '',
