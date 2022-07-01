@@ -15,15 +15,25 @@ class Dashboard extends My_Controller {
 
 	public function index()
 	{
- 
-    $persediaan = $this->db->query("SELECT bahan.nm_bahan, (SELECT nm_lokasi FROM lokasi WHERE id_lokasi=update_harga.id_lokasi) as nm_lokasi, MAX(update_harga.harga) as harga FROM update_harga LEFT JOIN bahan ON bahan.id_bahan = update_harga.id_bahan LEFT JOIN lokasi ON lokasi.id_lokasi=update_harga.id_lokasi WHERE bahan.deleted=0 GROUP BY update_harga.id_bahan");
+    
+    $data = $this->db->get('bahan')->result_array();
+    $dataTemp = [];
+    foreach($data as $dt){
+       $idBahan = $dt['id_bahan'];
+       $persediaan = $this->db->query("SELECT lokasi.nm_lokasi, bahan.nm_bahan, update_harga.harga as harga 
+       FROM update_harga 
+       INNER JOIN lokasi ON update_harga.id_lokasi=lokasi.id_lokasi
+       INNER JOIN bahan ON update_harga.id_bahan=bahan.id_bahan
+       WHERE update_harga.id_bahan='$idBahan' ORDER BY update_harga.harga DESC LIMIT 1")->row_array();
+       array_push($dataTemp, $persediaan);
+    }
       
-         $data=array(
+         $dataArray=array(
             "periodeku" => '',
-            "grafik" => $persediaan->result(),
-         
+            "grafik" => $dataTemp,
                   );
-		 $this->Mypage('isi/adm/dashboard', $data);
+        // var_dump($dataArray);die;
+		 $this->Mypage('isi/adm/dashboard', $dataArray);
 	}
 
     

@@ -87,8 +87,6 @@
                             </div>
                             <!-- end row -->
 
-                             
-
                            <div class="row">
                                 <div class="col-xl-12">
                                     <div class="card m-b-20">
@@ -134,7 +132,6 @@
     <script src="<?php echo base_url();?>assets/Chart.min.js"></script>
     <!-- Superieur Admin for Chart purposes -->
     <script src="<?php echo base_url();?>assets/widget-charts2.js"></script>
-
     <script>
     
 $(function () {
@@ -146,7 +143,7 @@ $(function () {
 		var data2 = {
 			labels: [
                 <?php foreach ($grafik as $grafik2): ?>
-          "<?php echo $grafik2->nm_bahan ?> - <?php echo $grafik2->nm_lokasi ?>",
+          "<?php echo $grafik2['nm_bahan']; ?> - <?php echo $grafik2['nm_lokasi']; ?>",
          <?php endforeach; ?>
             ],
 			datasets: [
@@ -156,7 +153,7 @@ $(function () {
 				borderColor: "#05b085",
 				data: [
                     <?php foreach ($grafik as $grafik4): ?>
-                    <?php echo $grafik4->harga ?>,
+                    <?php echo $grafik4['harga'] ?>,
 
                     <?php endforeach; ?>
                 ]
