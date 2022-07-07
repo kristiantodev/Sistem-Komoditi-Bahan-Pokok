@@ -70,5 +70,18 @@ class Persediaan extends My_Controller {
     
     }
 
+    public function hapus($id)
+    {
+        if($id==""){
+            $this->session->set_flashdata('error',"Data Gagal Di Hapus");
+            redirect('adm/persediaan');
+        }else{
+            $this->db->where('id_persediaan', $id);
+            $this->db->delete('persediaan');
+            $this->session->set_flashdata('sukses',"hapus");
+            redirect('adm/persediaan');
+        }
+    }
+
 	
 }

@@ -65,5 +65,18 @@ class Update_harga extends My_Controller {
     
     }
 
+    public function hapus($id)
+    {
+        if($id==""){
+            $this->session->set_flashdata('error',"Data Gagal Di Hapus");
+            redirect('adm/update_harga');
+        }else{
+            $this->db->where('id', $id);
+            $this->db->delete('update_harga');
+            $this->session->set_flashdata('sukses',"hapus");
+            redirect('adm/update_harga');
+        }
+    }
+
 	
 }

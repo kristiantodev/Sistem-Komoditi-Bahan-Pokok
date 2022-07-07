@@ -133,6 +133,7 @@
                                         <th width="270"><b>Lokasi</b></th>
                                         <th width="150"><b>Harga</b></th>
                                         <th width="220"><b>Update Tanggal</b></th>
+                                        <th width="9"><b>Aksi</b></th>
                                     </tr>
                                 </thead>
 
@@ -147,6 +148,12 @@
                                             <td><?php echo $p->nm_lokasi ?></td>
                                             <td><?php echo $p->harga ?>/<?php echo $p->satuan ?></td>
                                             <td><?php echo tgl_indo($p->tgl_harga); ?></td>
+                                            <td>
+                                                <?php if($p->tgl_harga == date("Y-m-d")){ ?>
+                                                    <a onclick="deleteConfirm('<?php echo site_url('adm/update_harga/hapus/'.$p->id); ?>')" href="#!" data-toggle="tooltip" class="btn btn-danger waves-effect waves-light tombol-hapus" data-original-title="Hapus"><span class="icon-label" data-toggle="modal" data-target="#modal-danger"><i class="fa fa-trash"></i> </span><span class="btn-text"></span></a>
+                                                   </a>
+                                                <?php } ?>
+                                            </td>
                                         </tr>
                                     <?php $i++;
                                     } ?>
@@ -169,3 +176,37 @@
 </div> <!-- container-fluid -->
 
 </div> <!-- content -->
+
+
+ <!-- modal -->
+ <div class="modal modal-danger fade" id="modal-danger">
+    <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-danger">
+      <h5 class="modal-title"><font color='white'>Konfirmasi Penghapusan</font></h5>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+      </div>
+      <div class="modal-body">
+      <p>Apakah anda yakin akan menghapus data ini ?</p>
+      </div>
+      <div class="modal-footer">
+      <a type="button" class="btn btn-secondary" data-dismiss="modal"><font color='white'><i class="fas fa-times"></i>&nbsp;Batal</font></a>
+      <a href="#" id="btn-delete" type="button" class="btn btn-danger mr-1"><i class="fas fa-trash"></i>&nbsp;Hapus</a>
+      </div>
+    </div>
+    <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+  </div>
+  <!-- /.modal -->
+
+  
+
+  <script>
+function deleteConfirm(url){
+    $('#btn-delete').attr('href', url);
+    $('#deleteModal').modal();
+}
+</script>
