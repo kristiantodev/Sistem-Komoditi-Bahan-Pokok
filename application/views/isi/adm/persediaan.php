@@ -163,10 +163,10 @@
                                             <td><?php echo $p->persediaan ?>/<?php echo $p->satuan ?></td>
                                             <td><?php echo tgl_indo($p->update_persediaan); ?></td>
                                             <td>
-                                                <?php if($p->update_persediaan == date("Y-m-d")){ ?>
+                                             
                                                     <a onclick="deleteConfirm('<?php echo site_url('adm/persediaan/hapus/'.$p->id_persediaan); ?>')" href="#!" data-toggle="tooltip" class="btn btn-danger waves-effect waves-light tombol-hapus" data-original-title="Hapus"><span class="icon-label" data-toggle="modal" data-target="#modal-danger"><i class="fa fa-trash"></i> </span><span class="btn-text"></span></a>
                                         </a>
-                                                <?php } ?>
+                                             
                                             </td>
                                         </tr>
                                     <?php $i++;
